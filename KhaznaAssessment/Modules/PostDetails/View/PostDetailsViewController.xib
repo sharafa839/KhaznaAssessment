@@ -23,13 +23,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFB-T7-jZQ">
-                    <rect key="frame" x="24" y="75" width="303" height="23.333333333333329"/>
-                    <fontDescription key="fontDescription" name="AlNile-Bold" family="Al Nile" pointSize="17"/>
+                    <rect key="frame" x="24" y="75" width="303" height="24.666666666666671"/>
+                    <fontDescription key="fontDescription" name="AlNile-Bold" family="Al Nile" pointSize="18"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Mac-hm-Opp">
-                    <rect key="frame" x="32" y="114.33333333333333" width="345" height="16.999999999999986"/>
+                    <rect key="frame" x="32" y="115.66666666666667" width="345" height="17.000000000000014"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yV1-Jr-Qh0">
                             <rect key="frame" x="0.0" y="0.0" width="345" height="17"/>

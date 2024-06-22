@@ -31,7 +31,7 @@ internal final class PostDetailsViewController: UIViewController {
     
     @IBAction func favoriteAction(_ sender: UIButton) {
         presenter?.post.isFavorited.toggle()
-        favoriteButton.setImage(presenter?.post.isFavorited ?? false ? UIImage(systemName: "heart.fill")?.withTintColor(.red) : UIImage(systemName: "heart"), for: .normal)
+        favoriteButton.setImage(presenter?.post.isFavorited ?? false ? UIImage(systemName: "heart.fill")?.withTintColor(.red, renderingMode: .alwaysOriginal) : UIImage(systemName: "heart"), for: .normal)
     }
 }
 
@@ -40,6 +40,6 @@ extension PostDetailsViewController: PresenterToViewPostDetailsProtocol {
     func showPostDetails(post: Post) {
         postTitleLabel.text = post.title
         postBodyLabel.text = post.body
-        favoriteButton.setImage(post.isFavorited ? UIImage(systemName: "heart.fill")?.withTintColor(.red) : UIImage(systemName: "heart"), for: .normal)
+        favoriteButton.setImage(post.isFavorited ? UIImage(systemName: "heart.fill")?.withTintColor(.red, renderingMode: .alwaysOriginal) : UIImage(systemName: "heart"), for: .normal)
     }
 }

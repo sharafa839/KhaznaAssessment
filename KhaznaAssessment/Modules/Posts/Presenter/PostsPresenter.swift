@@ -32,6 +32,7 @@ internal final class PostsPresenter: ViewToPresenterPostsProtocol {
     }
     
     func viewDidLoad() {
+        view?.showActivityIndicator()
         interactor?.fetchPosts(currentPage: currentPage)
     }
     
@@ -48,6 +49,7 @@ extension PostsPresenter: InteractorToPresenterPostsProtocol {
     func fetchPostsSuccessfully(posts: [Post]) {
         self.posts += posts
         view?.reloadDate()
+        view?.hideActivityIndicator()
     }
     
     func showErrorMessage(_ errorMessage: String) {

@@ -11,14 +11,14 @@ import UIKit
 
 
 // MARK: View Output (Presenter -> View)
-protocol PresenterToViewPostsProtocol: AnyObject {
+protocol PresenterToViewPostsProtocol: IndicatableView, AnyObject {
     func reloadDate()
     func showErrorMessage(_ errorMessage: String)
 }
 
 
 // MARK: View Input (View -> Presenter)
-protocol ViewToPresenterPostsProtocol {
+protocol ViewToPresenterPostsProtocol: AnyObject {
     
     var view: PresenterToViewPostsProtocol? { get set }
     var interactor: PresenterToInteractorPostsProtocol? { get set }
@@ -33,7 +33,7 @@ protocol ViewToPresenterPostsProtocol {
 
 
 // MARK: Interactor Input (Presenter -> Interactor)
-protocol PresenterToInteractorPostsProtocol {
+protocol PresenterToInteractorPostsProtocol: AnyObject {
     
     var presenter: InteractorToPresenterPostsProtocol? { get set }
     func fetchPosts(currentPage: Int)
@@ -41,7 +41,7 @@ protocol PresenterToInteractorPostsProtocol {
 
 
 // MARK: Interactor Output (Interactor -> Presenter)
-protocol InteractorToPresenterPostsProtocol {
+protocol InteractorToPresenterPostsProtocol: AnyObject {
     
     func fetchPostsSuccessfully(posts: [Post])
     func showErrorMessage(_ errorMessage: String)
@@ -49,7 +49,12 @@ protocol InteractorToPresenterPostsProtocol {
 
 
 // MARK: Router Input (Presenter -> Router)
-protocol PresenterToRouterPostsProtocol {
+protocol PresenterToRouterPostsProtocol: AnyObject {
     
     func navigateToPostDetailsViewController(post: Post, navigationController: UINavigationController)
+}
+
+protocol IndicatableView: AnyObject {
+    func showActivityIndicator()
+    func hideActivityIndicator()
 }
