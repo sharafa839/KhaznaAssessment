@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SplashPresenter: ViewToPresenterSplashProtocol {
+internal final class SplashPresenter: ViewToPresenterSplashProtocol {
   
     
 

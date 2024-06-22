@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SplashInteractor: PresenterToInteractorSplashProtocol {
+internal final class SplashInteractor: PresenterToInteractorSplashProtocol {
 
     // MARK: Properties
     var presenter: InteractorToPresenterSplashProtocol?

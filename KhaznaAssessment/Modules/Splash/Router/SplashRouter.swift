@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SplashRouter: PresenterToRouterSplashProtocol {
+internal final class SplashRouter: PresenterToRouterSplashProtocol {
     
     // MARK: Static methods
     static func createModule() -> UIViewController {
@@ -21,7 +21,6 @@ class SplashRouter: PresenterToRouterSplashProtocol {
         viewController.presenter = presenter
         viewController.presenter?.router = SplashRouter()
         viewController.presenter?.view = viewController
-        viewController.presenter?.interactor = SplashInteractor()
         viewController.presenter?.interactor?.presenter = presenter
         
         return viewController
@@ -32,5 +31,4 @@ class SplashRouter: PresenterToRouterSplashProtocol {
         let navigationViewController = UINavigationController(rootViewController: postsViewController)
         AppUtilities.changeRoot(root: navigationViewController, animated: true)
     }
-    
 }

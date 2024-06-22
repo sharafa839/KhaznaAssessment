@@ -8,12 +8,12 @@
 
 import UIKit
 
-class SplashViewController: UIViewController {
+internal final class SplashViewController: UIViewController {
     
     // MARK: - Properties
 
     private lazy var logoImageView: UIImageView = {
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 240, height: 110))
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 240, height: 100))
         imageView.image = UIImage(named: "logo")
         return imageView
     }()
@@ -22,20 +22,36 @@ class SplashViewController: UIViewController {
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+        setNewRoot()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupAnimation()
+    }
+
+    
+    //MARK: - Methods
+    
+    private func setupUI() {
+        view.backgroundColor = .white
         view.addSubview(logoImageView)
+    }
+    
+    private func setNewRoot() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
             self.presenter?.setPostsViewControllerAsRoot()
         }
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    private func setupAnimation() {
         logoImageView.center = view.center
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             self.animate()
         }
     }
-
+    
     private func animate() {
         UIView.animate(withDuration: 1) {
             let size = self.view.frame.size.width * 2
@@ -45,8 +61,6 @@ class SplashViewController: UIViewController {
             self.logoImageView.alpha = 0
         }
     }
-    
-    //MARK: - Methods
 }
 
 extension SplashViewController: PresenterToViewSplashProtocol{
