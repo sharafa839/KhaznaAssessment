@@ -43,6 +43,10 @@ internal final class PostsPresenter: ViewToPresenterPostsProtocol {
             router?.navigateToPostDetailsViewController(post: post, navigationController: navigationController)
         }
     }
+    
+    func showError(errorMessage: String) {
+        router?.showErrorAlert(errorMessage: errorMessage)
+    }
 }
 
 extension PostsPresenter: InteractorToPresenterPostsProtocol {

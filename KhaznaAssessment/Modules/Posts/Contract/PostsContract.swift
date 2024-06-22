@@ -29,6 +29,7 @@ protocol ViewToPresenterPostsProtocol: AnyObject {
     func viewDidLoad()
     func scrollToEnd(indexPath: IndexPath)
     func navigateToPost(atIndex indexPath: IndexPath, navigationController: UINavigationController)
+    func showError(errorMessage: String)
 }
 
 
@@ -49,9 +50,10 @@ protocol InteractorToPresenterPostsProtocol: AnyObject {
 
 
 // MARK: Router Input (Presenter -> Router)
-protocol PresenterToRouterPostsProtocol: AnyObject {
+protocol PresenterToRouterPostsProtocol: AnyObject, Router {
     
     func navigateToPostDetailsViewController(post: Post, navigationController: UINavigationController)
+    func showErrorAlert(errorMessage: String)
 }
 
 protocol IndicatableView: AnyObject {

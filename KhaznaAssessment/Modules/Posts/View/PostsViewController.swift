@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal final class PostsViewController: UIViewController {
+final class PostsViewController: UIViewController {
     
     // MARK: - IBOutlets -
     
@@ -19,6 +19,7 @@ internal final class PostsViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
 
     // MARK: - IBOutlets -
+    
     var presenter: ViewToPresenterPostsProtocol?
     
     // MARK: - Lifecycle Methods
@@ -70,10 +71,7 @@ extension PostsViewController: PresenterToViewPostsProtocol {
     func showErrorMessage(_ errorMessage: String) {
         hideActivityIndicator()
         refreshControl.endRefreshing()
-        let alertController: UIAlertController = UIAlertController(title: "error", message: errorMessage, preferredStyle: .alert)
-               let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-               alertController.addAction(okAction)
-               present(alertController, animated: true, completion: nil)
+        presenter?.showError(errorMessage: errorMessage)
     }
 }
 

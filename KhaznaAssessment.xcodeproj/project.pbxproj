@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04A053932C274C4A002ACE33 /* PostsListRouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A053922C274C4A002ACE33 /* PostsListRouterTest.swift */; };
+		04A053952C275053002ACE33 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A053942C275053002ACE33 /* TopViewController.swift */; };
+		04A053972C2750A3002ACE33 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A053962C2750A3002ACE33 /* Router.swift */; };
+		04A0539B2C27732F002ACE33 /* PostListInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0539A2C27732F002ACE33 /* PostListInteractorTest.swift */; };
+		04A0539C2C27739A002ACE33 /* MockPostsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A053902C274489002ACE33 /* MockPostsPresenter.swift */; };
+		04A0539E2C278986002ACE33 /* PostsViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0539D2C278986002ACE33 /* PostsViewControllerTest.swift */; };
 		04C33C812C24715C00632792 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C33C802C24715C00632792 /* AppDelegate.swift */; };
 		04C33C8A2C24715E00632792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C33C892C24715E00632792 /* Assets.xcassets */; };
 		04C33C8D2C24715E00632792 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C33C8B2C24715E00632792 /* LaunchScreen.storyboard */; };
@@ -69,6 +75,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04A053902C274489002ACE33 /* MockPostsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPostsPresenter.swift; sourceTree = "<group>"; };
+		04A053922C274C4A002ACE33 /* PostsListRouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListRouterTest.swift; sourceTree = "<group>"; };
+		04A053942C275053002ACE33 /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
+		04A053962C2750A3002ACE33 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		04A0539A2C27732F002ACE33 /* PostListInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListInteractorTest.swift; sourceTree = "<group>"; };
+		04A0539D2C278986002ACE33 /* PostsViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewControllerTest.swift; sourceTree = "<group>"; };
 		04C33C7D2C24715C00632792 /* KhaznaAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KhaznaAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C33C802C24715C00632792 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C33C892C24715E00632792 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -185,6 +197,10 @@
 			isa = PBXGroup;
 			children = (
 				04C33C972C24715F00632792 /* KhaznaAssessmentTests.swift */,
+				04A053902C274489002ACE33 /* MockPostsPresenter.swift */,
+				04A0539D2C278986002ACE33 /* PostsViewControllerTest.swift */,
+				04A0539A2C27732F002ACE33 /* PostListInteractorTest.swift */,
+				04A053922C274C4A002ACE33 /* PostsListRouterTest.swift */,
 			);
 			path = KhaznaAssessmentTests;
 			sourceTree = "<group>";
@@ -319,6 +335,8 @@
 				04C33CEA2C2515B600632792 /* TableView+Extension.swift */,
 				04F444B62C26010700B7E25E /* Navigation+Extension.swift */,
 				04F444BA2C260ADD00B7E25E /* AppUtilities.swift */,
+				04A053942C275053002ACE33 /* TopViewController.swift */,
+				04A053962C2750A3002ACE33 /* Router.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -692,10 +710,12 @@
 				04C33CD72C24820600632792 /* TargetType.swift in Sources */,
 				04C33CE42C24821C00632792 /* Extensions.swift in Sources */,
 				04F444B12C25FE7100B7E25E /* SplashViewController.swift in Sources */,
+				04A053952C275053002ACE33 /* TopViewController.swift in Sources */,
 				04C33CEE2C2523D200632792 /* Data+Extension.swift in Sources */,
 				04F444CC2C26117800B7E25E /* PostDetailsContract.swift in Sources */,
 				04F444DB2C261A1500B7E25E /* PostDetailsInteractor.swift in Sources */,
 				04F444AF2C25FE7100B7E25E /* SplashPresenter.swift in Sources */,
+				04A053972C2750A3002ACE33 /* Router.swift in Sources */,
 				04F444DE2C26486300B7E25E /* SplashInteractor.swift in Sources */,
 				04C33CBB2C2474F300632792 /* PostsRouter.swift in Sources */,
 				04F444AE2C25FE7100B7E25E /* SplashContract.swift in Sources */,
@@ -721,6 +741,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C33C982C24715F00632792 /* KhaznaAssessmentTests.swift in Sources */,
+				04A0539B2C27732F002ACE33 /* PostListInteractorTest.swift in Sources */,
+				04A0539C2C27739A002ACE33 /* MockPostsPresenter.swift in Sources */,
+				04A0539E2C278986002ACE33 /* PostsViewControllerTest.swift in Sources */,
+				04A053932C274C4A002ACE33 /* PostsListRouterTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

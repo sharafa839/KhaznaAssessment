@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-internal final class PostsRouter: PresenterToRouterPostsProtocol {
+internal final class PostsRouter: Router, PresenterToRouterPostsProtocol {
     
 
     // MARK: Static methods
@@ -31,6 +31,13 @@ internal final class PostsRouter: PresenterToRouterPostsProtocol {
     
     func navigateToPostDetailsViewController(post: Post, navigationController: UINavigationController) {
         let viewController = PostDetailsRouter.createModule(post: post) 
-        navigationController.pushViewController(viewController, animated: true)
+        topNavController?.pushViewController(viewController, animated: true)
+    }
+    
+    func showErrorAlert(errorMessage: String) {
+        let alertController: UIAlertController = UIAlertController(title: "error", message: errorMessage, preferredStyle: .alert)
+               let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+               alertController.addAction(okAction)
+        topViewController?.present(alertController, animated: true, completion: nil)
     }
 }

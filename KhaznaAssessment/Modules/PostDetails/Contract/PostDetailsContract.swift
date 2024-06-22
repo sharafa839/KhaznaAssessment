@@ -10,14 +10,14 @@ import Foundation
 
 
 // MARK: View Output (Presenter -> View)
-protocol PresenterToViewPostDetailsProtocol {
+protocol PresenterToViewPostDetailsProtocol: AnyObject {
     var presenter: ViewToPresenterPostDetailsProtocol? { get set }
     func showPostDetails(post: Post)
 }
 
 
 // MARK: View Input (View -> Presenter)
-protocol ViewToPresenterPostDetailsProtocol {
+protocol ViewToPresenterPostDetailsProtocol: AnyObject {
     
     var view: PresenterToViewPostDetailsProtocol? { get set }
     var interactor: PresenterToInteractorPostDetailsProtocol? { get set }
@@ -28,14 +28,14 @@ protocol ViewToPresenterPostDetailsProtocol {
 
 
 // MARK: Interactor Input (Presenter -> Interactor)
-protocol PresenterToInteractorPostDetailsProtocol {
+protocol PresenterToInteractorPostDetailsProtocol: AnyObject {
     
     var presenter: InteractorToPresenterPostDetailsProtocol? { get set }
 }
 
 
 // MARK: Interactor Output (Interactor -> Presenter)
-protocol InteractorToPresenterPostDetailsProtocol {
+protocol InteractorToPresenterPostDetailsProtocol: AnyObject {
     
 }
 
