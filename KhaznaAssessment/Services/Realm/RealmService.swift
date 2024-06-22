@@ -1,15 +1,14 @@
 //
 //  RealmService.swift
-//  University
+//  KhaznaAssessment
 //
-//  Created by Hardik on 17/10/2561 BE.
-//  Copyright © 2561 Hardik Kothari. All rights reserved.
+//  Created by Sharaf on 6/20/2024.
 //
 
 import UIKit
 import RealmSwift
 
-class RealmService<T>: RealmServiceProtocol where T: RealmEntity, T: Object, T.EntityType: Entity {
+internal final class RealmService<T>: RealmServiceProtocol where T: RealmEntity, T: Object, T.EntityType: Entity {
     
     typealias RealmEntityType = T
     
