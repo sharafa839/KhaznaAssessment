@@ -27,6 +27,7 @@ internal final class PostsViewController: UIViewController {
         super.viewDidLoad()
         presenter?.viewDidLoad()
         setupTableViewAndRefreshControl()
+        setupTitle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +51,10 @@ internal final class PostsViewController: UIViewController {
     @objc private func refreshPostList(_ sender: Any) {
         presenter?.posts = []
         presenter?.viewDidLoad()
+    }
+    
+    private func setupTitle() {
+        title = "Posts"
     }
 }
 
