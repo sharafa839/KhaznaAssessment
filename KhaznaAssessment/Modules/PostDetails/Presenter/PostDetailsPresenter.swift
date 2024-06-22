@@ -8,12 +8,20 @@
 
 import Foundation
 
-class PostDetailsPresenter: ViewToPresenterPostDetailsProtocol {
+internal final class PostDetailsPresenter: ViewToPresenterPostDetailsProtocol {
 
     // MARK: Properties
     var view: PresenterToViewPostDetailsProtocol?
     var interactor: PresenterToInteractorPostDetailsProtocol?
     var router: PresenterToRouterPostDetailsProtocol?
+    var post: Post
+    init(post: Post) {
+        self.post = post
+    }
+    
+    func viewDidLoad() {
+        view?.showPostDetails(post: post)
+    }
 }
 
 extension PostDetailsPresenter: InteractorToPresenterPostDetailsProtocol {

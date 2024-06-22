@@ -11,7 +11,8 @@ import Foundation
 
 // MARK: View Output (Presenter -> View)
 protocol PresenterToViewPostDetailsProtocol {
-   
+    var presenter: ViewToPresenterPostDetailsProtocol? { get set }
+    func showPostDetails(post: Post)
 }
 
 
@@ -21,6 +22,8 @@ protocol ViewToPresenterPostDetailsProtocol {
     var view: PresenterToViewPostDetailsProtocol? { get set }
     var interactor: PresenterToInteractorPostDetailsProtocol? { get set }
     var router: PresenterToRouterPostDetailsProtocol? { get set }
+    func viewDidLoad()
+    var post: Post { get set }
 }
 
 

@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 
-class PostDetailsRouter: PresenterToRouterPostDetailsProtocol {
+internal final class PostDetailsRouter: PresenterToRouterPostDetailsProtocol {
     
     // MARK: Static methods
-    static func createModule() -> UIViewController {
+    static func createModule(post: Post) -> UIViewController {
         
         let viewController = PostDetailsViewController()
         
-        let presenter: ViewToPresenterPostDetailsProtocol & InteractorToPresenterPostDetailsProtocol = PostDetailsPresenter()
+        let presenter: ViewToPresenterPostDetailsProtocol & InteractorToPresenterPostDetailsProtocol = PostDetailsPresenter(post: post)
         
         viewController.presenter = presenter
         viewController.presenter?.router = PostDetailsRouter()
