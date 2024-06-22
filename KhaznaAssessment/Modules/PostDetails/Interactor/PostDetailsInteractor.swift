@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PostDetailsInteractor: PresenterToInteractorPostDetailsProtocol {
+internal final class PostDetailsInteractor: PresenterToInteractorPostDetailsProtocol {
 
     // MARK: Properties
     var presenter: InteractorToPresenterPostDetailsProtocol?
