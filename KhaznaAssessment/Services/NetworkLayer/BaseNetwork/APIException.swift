@@ -1,9 +1,8 @@
 //
 //  APIException.swift
-//  Nashmi
+//  KhaznaAssessment
 //
-//  Created by Sharaf on 4/22/20.
-//  Copyright © 2020 apple. All rights reserved.
+//  Created by Sharaf on 6/20/2024.
 //
 
 import Foundation

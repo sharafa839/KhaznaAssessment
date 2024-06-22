@@ -1,8 +1,8 @@
 //
 //  TargetType.swift
-//  University Assessment
+//  KhaznaAssessment
 //
-//  Created by Sharaf on 30/10/2021.
+//  Created by Sharaf on 6/20/2024.
 //
 
 import Foundation

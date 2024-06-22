@@ -1,8 +1,8 @@
 //
 //  BaseApi.swift
-//  University Assessment
+//  KhaznaAssessment
 //
-//  Created by Sharaf on 30/10/2021.
+//  Created by Sharaf on 6/20/2024.
 //
 
 import Foundation
@@ -45,6 +45,8 @@ class BaseApi <T:TargetType> {
                     completion(.failure(.init(status: 0, message: "something went wrong")))
                     return
                 }
+                let json = JSONDecoder()
+                print(theJsonData.prettyString ?? "")
                 completion(.success(responseObject))
                 
             }
