@@ -10,13 +10,13 @@ import Foundation
 
 
 // MARK: View Output (Presenter -> View)
-protocol PresenterToViewSplashProtocol {
+protocol PresenterToViewSplashProtocol: AnyObject {
    
 }
 
 
 // MARK: View Input (View -> Presenter)
-protocol ViewToPresenterSplashProtocol {
+protocol ViewToPresenterSplashProtocol: AnyObject {
     
     var view: PresenterToViewSplashProtocol? { get set }
     var interactor: PresenterToInteractorSplashProtocol? { get set }
@@ -27,19 +27,19 @@ protocol ViewToPresenterSplashProtocol {
 
 
 // MARK: Interactor Input (Presenter -> Interactor)
-protocol PresenterToInteractorSplashProtocol {
+protocol PresenterToInteractorSplashProtocol: AnyObject {
     
     var presenter: InteractorToPresenterSplashProtocol? { get set }
 }
 
 
 // MARK: Interactor Output (Interactor -> Presenter)
-protocol InteractorToPresenterSplashProtocol {
+protocol InteractorToPresenterSplashProtocol: AnyObject {
     
 }
 
 
 // MARK: Router Input (Presenter -> Router)
-protocol PresenterToRouterSplashProtocol {
+protocol PresenterToRouterSplashProtocol: AnyObject {
     func setPostsViewControllerAsRoot()
 }

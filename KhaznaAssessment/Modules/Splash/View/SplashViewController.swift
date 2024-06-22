@@ -40,25 +40,26 @@ internal final class SplashViewController: UIViewController {
     }
     
     private func setNewRoot() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
-            self.presenter?.setPostsViewControllerAsRoot()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7) { [weak self] in
+            self?.presenter?.setPostsViewControllerAsRoot()
         }
     }
     
     private func setupAnimation() {
         logoImageView.center = view.center
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            self.animate()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+            self?.animate()
         }
     }
     
     private func animate() {
-        UIView.animate(withDuration: 1) {
-            let size = self.view.frame.size.width * 2
-            let xpostion = size - self.view.frame.width
-            let ypostion = self.view.frame.height - size
-            self.logoImageView.frame = CGRect(x: -(xpostion/2), y: ypostion/2, width: size, height: size)
-            self.logoImageView.alpha = 0
+        UIView.animate(withDuration: 1) { [weak self] in
+            guard let self else { return }
+            let size = view.frame.size.width  * 2
+            let xpostion = size - view.frame.width
+            let ypostion = view.frame.height - size
+            logoImageView.frame = CGRect(x: -(xpostion/2), y: ypostion/2, width: size, height: size)
+            logoImageView.alpha = 0
         }
     }
 }
