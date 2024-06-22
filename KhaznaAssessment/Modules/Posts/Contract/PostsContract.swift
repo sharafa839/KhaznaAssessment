@@ -27,8 +27,8 @@ protocol ViewToPresenterPostsProtocol {
     var posts: [Post] { get set }
     var currentPage: Int { get set }
     func viewDidLoad()
-    func showPostController(navigationController: UINavigationController)
     func scrollToEnd(indexPath: IndexPath)
+    func navigateToPost(atIndex indexPath: IndexPath, navigationController: UINavigationController)
 }
 
 
@@ -51,4 +51,5 @@ protocol InteractorToPresenterPostsProtocol {
 // MARK: Router Input (Presenter -> Router)
 protocol PresenterToRouterPostsProtocol {
     
+    func navigateToPostDetailsViewController(post: Post, navigationController: UINavigationController)
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostsViewController: UIViewController {
+internal final class PostsViewController: UIViewController {
     
     // MARK: - IBOutlets -
     
@@ -29,9 +29,16 @@ class PostsViewController: UIViewController {
         setupTableViewAndRefreshControl()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+        // reload table view so redraw cell after back from post details if you favorite the post
+        // not make it delegate and depends on class reference type because it's more easy and quick
+    }
+    
     // MARK: - Methods
 
-    func setupTableViewAndRefreshControl() {
+    private func setupTableViewAndRefreshControl() {
         tableView.register(nib: PostTableViewCell.self)
         tableView.delegate = self
         tableView.dataSource = self
@@ -46,7 +53,9 @@ class PostsViewController: UIViewController {
     }
 }
 
-extension PostsViewController: PresenterToViewPostsProtocol{
+extension PostsViewController: PresenterToViewPostsProtocol {
+    
+    // TODO: Implement View Output Methods
     func reloadDate() {
         tableView.reloadData()
         refreshControl.endRefreshing()
@@ -61,8 +70,6 @@ extension PostsViewController: PresenterToViewPostsProtocol{
                alertController.addAction(okAction)
                present(alertController, animated: true, completion: nil)
     }
-    
-    // TODO: Implement View Output Methods
 }
 
 extension PostsViewController: UITableViewDataSource, UITableViewDelegate {
@@ -89,9 +96,6 @@ extension PostsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       // let university = presenter.universities[indexPath.row]
-        
-      //  presenter.didSelectUniversity(university)
+        presenter?.navigateToPost(atIndex: indexPath, navigationController: navigationController!)
     }
-    
 }

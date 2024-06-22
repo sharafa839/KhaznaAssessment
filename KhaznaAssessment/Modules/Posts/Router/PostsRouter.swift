@@ -9,9 +9,11 @@
 import Foundation
 import UIKit
 
-class PostsRouter: PresenterToRouterPostsProtocol {
+internal final class PostsRouter: PresenterToRouterPostsProtocol {
     
+
     // MARK: Static methods
+    
     static func createModule() -> UIViewController {
         
         let viewController = PostsViewController()
@@ -27,4 +29,8 @@ class PostsRouter: PresenterToRouterPostsProtocol {
         return viewController
     }
     
+    func navigateToPostDetailsViewController(post: Post, navigationController: UINavigationController) {
+        let viewController = PostDetailsRouter.createModule(post: post) 
+        navigationController.pushViewController(viewController, animated: true)
+    }
 }

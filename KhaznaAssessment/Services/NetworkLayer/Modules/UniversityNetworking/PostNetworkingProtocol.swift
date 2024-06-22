@@ -1,5 +1,5 @@
 //
-//  UniversityNetworking.swift
+//  PostNetworkingProtocol.swift
 //  KhaznaAssessment
 //
 //  Created by Sharaf on 6/20/2024.
@@ -7,19 +7,19 @@
 
 import Foundation
 
-protocol UniversityNetworkingProtocol {
+protocol PostNetworkingProtocol {
     
-    func getUniversities(completion : @escaping(RequestResult<[PostResponse]>)->Void)
+    func getPosts(page: Int, completion : @escaping(RequestResult<[PostResponse]>)->Void)
 }
 
 
-extension UniversityNetworkingProtocol  {
+extension PostNetworkingProtocol  {
     
-    private var repo: UniversityRepo {
-        return UniversityRepo()
+    private var repo: PostRepo {
+        return PostRepo()
     }
     
-    func getUniversities(completion : @escaping(RequestResult<[PostResponse]>)->Void) {
-        repo.fetchData(target: .getUniversities, completion: completion)
+    func getPosts(page: Int, completion : @escaping(RequestResult<[PostResponse]>)->Void) {
+        repo.fetchData(target: .getPosts(page: page), completion: completion)
     }
 }

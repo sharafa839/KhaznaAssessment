@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PostsPresenter: ViewToPresenterPostsProtocol {
+internal final class PostsPresenter: ViewToPresenterPostsProtocol {
     
     // MARK: Properties
     
@@ -23,16 +23,24 @@ class PostsPresenter: ViewToPresenterPostsProtocol {
     }
     
     //MARK: - Methods
-   
-    func showPostController(navigationController: UINavigationController) {
-       // router.
-    }
-    
+
     func scrollToEnd(indexPath: IndexPath) {
            if indexPath.row == postsCount - 1 { // last cell
              currentPage += 1
                interactor?.fetchPosts(currentPage: currentPage)
            }
+    }
+    
+    func viewDidLoad() {
+        interactor?.fetchPosts(currentPage: currentPage)
+    }
+    
+    
+    func navigateToPost(atIndex indexPath: IndexPath, navigationController: UINavigationController) {
+        if posts.indices.contains(indexPath.row) {
+            let post =  posts[indexPath.row]
+            router?.navigateToPostDetailsViewController(post: post, navigationController: navigationController)
+        }
     }
 }
 
@@ -44,17 +52,5 @@ extension PostsPresenter: InteractorToPresenterPostsProtocol {
     
     func showErrorMessage(_ errorMessage: String) {
         view?.showErrorMessage(errorMessage)
-    }
-    
-    func viewDidLoad() {
-        interactor?.fetchPosts(currentPage: currentPage)
-    }
-    
-    func post(atIndex indexPath: IndexPath) -> Post? {
-        if posts.indices.contains(indexPath.row) {
-            return posts[indexPath.row]
-        } else {
-            return nil
-        }
     }
 }

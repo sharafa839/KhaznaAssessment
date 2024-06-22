@@ -9,7 +9,10 @@ import Foundation
 import RealmSwift
 
 // MARK: - Post
-struct Post: Entity {
+
+// made the model is class not struct to be reference type so  when favorite post it will be still favorite when back to posts list
+
+internal final class Post: Entity {
     typealias RealmEntityType = PostRealm
     
     let id: Int
@@ -19,22 +22,28 @@ struct Post: Entity {
     var realmObject: PostRealm {
         return PostRealm(entity: self)
     }
+    
+    init(id: Int, title: String, body: String, isFavorited: Bool) {
+        self.id = id
+        self.title = title
+        self.body = body
+        self.isFavorited = isFavorited
+    }
 }
 
 extension Post {
     
-    init(model: PostResponse) {
+    convenience init(model: PostResponse) {
         self.init(
             id: model.id ?? 0,
             title: model.title ?? "",
-            body: model.body ?? ""
+            body: model.body ?? "",
+            isFavorited: false
         )
     }
     
-    init(entity: RealmEntityType) {
-        self.id = entity.id
-        self.title = entity.title
-        self.body = entity.body
+    convenience init(entity: RealmEntityType) {
+        self.init(id: entity.id, title: entity.title, body: entity.body, isFavorited: false)
     }
 }
 

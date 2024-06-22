@@ -1,5 +1,5 @@
 //
-//  UniversityApi.swift
+//  PostApi.swift
 //  KhaznaAssessment
 //
 //  Created by Sharaf on 6/20/2024.
@@ -8,32 +8,32 @@
 import Foundation
 import Alamofire
 
-enum UniversityApi {
+enum PostApi {
     
-    case getUniversities
+    case getPosts(page: Int)
 }
 
-extension UniversityApi: TargetType{
+extension PostApi: TargetType{
     
     var baseURL: String {
         switch self {
             
         default:
-            return "http://universities.hipolabs.com"
+            return "https://jsonplaceholder.typicode.com"
         }
     }
     
     var path: String {
         switch self {
-        case .getUniversities:
-            return "/search"
+        case .getPosts:
+            return "/posts"
             
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .getUniversities:
+        case .getPosts:
             return .get
             
         }
@@ -41,8 +41,8 @@ extension UniversityApi: TargetType{
     
     var task: Task {
         switch self {
-        case .getUniversities:
-            return .requestParameters(parameters: ["country":"United Arab Emirates"], encoding: URLEncoding.default)
+        case .getPosts(let page):
+            return .requestParameters(parameters: ["_page": "\(page)"], encoding: URLEncoding.default)
             
         }
     }

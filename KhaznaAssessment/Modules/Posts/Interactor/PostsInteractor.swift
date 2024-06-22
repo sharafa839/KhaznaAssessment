@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-final class PostsInteractor: PresenterToInteractorPostsProtocol {
+internal final class PostsInteractor: PresenterToInteractorPostsProtocol {
     
     // MARK: Properties
     var presenter: InteractorToPresenterPostsProtocol?

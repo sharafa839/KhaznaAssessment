@@ -1,29 +1,28 @@
 //
-//  UniversityTableViewCell.swift
-//  University
+//  PostTableViewCell.swift
+//  KhaznaAssessment
 //
-//  Created by Sharaf on 5/2/24.
+//  Created by Sharaf on 6/20/24.
 //
 
 import UIKit
 
-class UniversityTableViewCell: UITableViewCell {
+internal final class PostTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var universityNameLabel: UILabel!
-    @IBOutlet weak var universityStateLabel: UILabel!
+    @IBOutlet weak var postTitleLabel: UILabel!
+    @IBOutlet weak var postDescriptionLabel: UILabel!
+    @IBOutlet weak var heartImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    
-    private func setupUI() {
-        
-    }
 
    
-    func configure(_ university: University) {
-        universityNameLabel.text = university.name
-        universityStateLabel.text = university.state
+    func configure(_ post: Post) {
+        postTitleLabel.text = post.title
+        postDescriptionLabel.text = post.body
+        heartImageView.image = post.isFavorited ? UIImage(systemName: "heart.fill")?.withTintColor(.red) : UIImage(systemName: "heart")
     }
     
 }
